@@ -1,0 +1,19 @@
+{
+    "name": "lynrantictz/laravel-organization",
+    "description": "organization",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lynrantictz\\LaravelOrganization\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Lynrantic",
+            "email": "developer@lynrantic.co.tz"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
