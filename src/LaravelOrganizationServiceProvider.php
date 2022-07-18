@@ -3,6 +3,7 @@
 namespace Lynrantictz\LaravelOrganization;
 
 use Illuminate\Support\ServiceProvider;
+use Lynrantictz\LaravelOrganization\Commands\InitCommand;
 
 class LaravelOrganizationServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,10 @@ class LaravelOrganizationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                InitCommand::class,
+            ]);
+        }
     }
 }
