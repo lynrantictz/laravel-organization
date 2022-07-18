@@ -4,7 +4,7 @@ namespace Lynrantictz\LaravelOrganization\Services;
 
 use Illuminate\Support\Facades\File;
 
-trait Generator
+trait InitService
 {
 
     public function initiate()

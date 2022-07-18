@@ -5,7 +5,7 @@ namespace Lynrantictz\LaravelOrganization\Commands;
 use Illuminate\Console\Command;
 use Lynrantictz\LaravelOrganization\Services\InitService;
 
-class InitCommand extends Command
+class GenCommand extends Command
 {
     use InitService;
     /**
@@ -13,14 +13,14 @@ class InitCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'og:init';
+    protected $signature = 'og:gen {Model} {--path=?} {--A|a} {--R|r} {--ar|AR} {--V|v} {C|c}{R|r}{V|v}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Create a BaseModel.php and BaseRepository.php files in Models and repository root folder';
+    protected $description = 'Create a model --A|a Attribute --R|r Relationship C|c Controller R|r Route V|v Views';
 
     /**
      * Create a new command instance.
@@ -39,15 +39,6 @@ class InitCommand extends Command
      */
     public function handle()
     {
-        if (
-            !file_exists(app_path('Models')) || 
-            !file_exists(app_path('Repositories')) || 
-            !file_exists(app_path('Models/BaseModel.php')) ||
-            !file_exists(app_path('Repositories/BaseRepository.php'))
-            ) {
-                $this->initiate();
-        }else{
-            $this->warn('Sorry!, Your have already run the command');
-        }
+        
     }
 }
