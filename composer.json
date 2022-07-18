@@ -15,5 +15,8 @@
         }
     ],
     "minimum-stability": "dev",
-    "require": {}
+    "require": {
+        "owen-it/laravel-auditing": "12",
+        "webpatser/laravel-uuid": "2"
+    }
 }
