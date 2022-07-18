@@ -23,6 +23,6 @@ class LaravelOrganizationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        
+
     }
 }
