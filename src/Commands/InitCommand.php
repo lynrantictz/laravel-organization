@@ -39,6 +39,7 @@ class InitCommand extends Command
     {
         $this->info('Organization Initialization');
         $this->line('Generating files...');
+        $this->
         $this->line('App\Models\BaseModel.php');
         $this->line('App\Repository\BaseRepository.php');
         $this->info('Initalization completed successfully');
