@@ -39,11 +39,15 @@ class InitCommand extends Command
      */
     public function handle()
     {
-        $this->info('Organization Initialization');
-        $this->line('Generating files...');
-        $this->initiate();
-        $this->line('App\Models\BaseModel.php');
-        $this->line('App\Repository\BaseRepository.php');
-        $this->info('Initalization completed successfully');
+        if (
+            !file_exists(app_path('Models')) || 
+            !file_exists(app_path('Repositories')) || 
+            !file_exists(app_path('Models/BaseModel.php')) ||
+            !file_exists(app_path('Repositories/BaseRepository.php'))
+            ) {
+                $this->initiate();
+        }else{
+            $this->warn('Sorry!, Your have already run the command');
+        }
     }
 }

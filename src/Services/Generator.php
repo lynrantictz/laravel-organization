@@ -9,10 +9,15 @@ trait Generator
 
     public function initiate()
     {
+        $this->info('Organization Initialization');
+        $this->line('Generating Files...');
         $this->createModelsFolder();
         $this->publishBaseModel();
+        $this->line('App\Models\BaseModel.php');
         $this->createRepositoriesFolder();
+        $this->line('App\Repository\BaseRepository.php');
         $this->publishBaseRepository();
+        $this->info('Initalization completed successfully');
     }
 
     public function createModelsFolder()
