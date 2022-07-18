@@ -23,7 +23,7 @@ trait Generator
             File::makeDirectory(app_path('Repositories'), 0777, true, true);
         }
 
-        if (!file_exists(app_path('App/Repositories/BaseRepository.php'))) {
+        if (!file_exists(app_path('Repositories/BaseRepository.php'))) {
             $this->publishBaseRepository();
         }
 
@@ -31,12 +31,12 @@ trait Generator
 
     private function publishBaseModel()
     {
-        $this->publishes([ __DIR__.'/../Templates/BaseModel.php' => app_path('App/Models'), ], 'app');
+        File::copy(__DIR__.'/../Templates/BaseModel.php', app_path('Models/BaseModel.php'));
     }
 
     private function publishBaseRepository()
     {
-        $this->publishes([ __DIR__.'/../Templates/BaseRepository.php' => app_path('App/Repositories'), ], 'app');
+        File::copy(__DIR__.'/../Templates/BaseRepository.php', app_path('Repositories/BaseRepository.php'));
     }
 
 
