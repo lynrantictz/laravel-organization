@@ -13,7 +13,7 @@ class GenCommand extends Command
      *  {--path=?} {--A|a} {--R|r} {--ar|AR} {--V|v} {C|c}{R|r}{V|v}
      * @var string
      */
-    protected $signature = 'og:gen {ModelName}';
+    protected $signature = 'og:gen {ModelName} {--no-base-model}';
 
     /**
      * The console command description.
@@ -41,6 +41,11 @@ class GenCommand extends Command
     {
         if($this->argument('ModelName')){
             $model_path = $this->model(['model' => $this->argument('ModelName')]);
+            $this->info(app_path($model_path));
+        }
+
+        if($this->argument('ModelName') && $this->option('no-base-model')){
+            $model_path = $this->model(['model' => $this->argument('ModelName'), 'no_base_model' => $this->option('no-base-model')]);
             $this->info(app_path($model_path));
         }
     }

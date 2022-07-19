@@ -1,12 +1,12 @@
 <?php
  
-//namespace
+//namespace;
  
 //baseModel
 //import
 //model;
 
-class ModelName extends Model
+class ModelName extends ModelExtension
 {
     //use 
     /**
