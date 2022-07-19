@@ -3,17 +3,17 @@
 namespace Lynrantictz\LaravelOrganization\Commands;
 
 use Illuminate\Console\Command;
-use Lynrantictz\LaravelOrganization\Services\InitService;
+use Lynrantictz\LaravelOrganization\Services\GenService;
 
 class GenCommand extends Command
 {
-    use InitService;
+    use GenService;
     /**
      * The name and signature of the console command.
-     *
+     *  {--path=?} {--A|a} {--R|r} {--ar|AR} {--V|v} {C|c}{R|r}{V|v}
      * @var string
      */
-    protected $signature = 'og:gen {Model} {--path=?} {--A|a} {--R|r} {--ar|AR} {--V|v} {C|c}{R|r}{V|v}';
+    protected $signature = 'og:gen {ModelName}';
 
     /**
      * The console command description.
@@ -39,6 +39,9 @@ class GenCommand extends Command
      */
     public function handle()
     {
-        
+        if($this->argument('ModelName')){
+            $model_path = $this->model(['model' => $this->argument('ModelName')]);
+            $this->info(app_path($model_path));
+        }
     }
 }

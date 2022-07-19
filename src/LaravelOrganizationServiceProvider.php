@@ -3,6 +3,7 @@
 namespace Lynrantictz\LaravelOrganization;
 
 use Illuminate\Support\ServiceProvider;
+use Lynrantictz\LaravelOrganization\Commands\GenCommand;
 use Lynrantictz\LaravelOrganization\Commands\InitCommand;
 
 class LaravelOrganizationServiceProvider extends ServiceProvider
@@ -27,6 +28,7 @@ class LaravelOrganizationServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 InitCommand::class,
+                GenCommand::class
             ]);
         }
     }
